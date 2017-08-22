@@ -46,11 +46,18 @@ class App extends Component {
 
   render() {
     return (
-      <section id="container">
-        <Button text="IDK" action={this.negative}/>
-        <Card word={this.state.currentWord}/>
-        <Button text="YES" action={this.affirmative}/>
-      </section>
+      <div>
+        {this.state.currentWord !== undefined &&
+          <section id="container">
+              <Button text="IDK" action={this.negative}/>
+              <Card word={this.state.currentWord}/>
+              <Button text="YES" action={this.affirmative}/>
+          </section>
+        }
+        {this.state.currentWord === undefined &&
+          <h1>CHART</h1>
+        }
+      </div>
     );
   }
 }
