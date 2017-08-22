@@ -24,6 +24,8 @@ class App extends Component {
     this.next = this.next.bind( this );
     this.negative = this.negative.bind( this );
     this.affirmative = this.affirmative.bind( this );
+
+    document.addEventListener( 'keydown', this.keyHandler.bind(this) );
   }
 
   componentDidMount() {
@@ -66,6 +68,16 @@ class App extends Component {
       }
     });
     this.next();
+  }
+
+  keyHandler(e) {
+    if ( this.state.sessions[this.state.currentSession].length === this.state.words.length ) { return; }
+    
+    if ( e.keyCode === 37 ) {
+      this.negative();
+    } else if ( e.keyCode == 39 ) {
+      this.affirmative();
+    }
   }
 
   render() {
