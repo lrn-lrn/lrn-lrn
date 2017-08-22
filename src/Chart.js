@@ -1,10 +1,16 @@
 import React from 'react';
+import WordHeader from './WordHeader.js';
+import SessionRow from './SessionRow.js';
 
-const Chart = ({responses}) => (
-  <div>{responses.map((resp, i) => (
-      <h1 key={i}>{resp.toString()}</h1>
-    ))}
-  </div>
+// Chart will render WordCol & SessRow
+// WordCol/SessRow render <tr><td> 
+const Chart = ({words,responses}) => (
+  <table>
+    <WordHeader words={words}/> 
+    <tbody>
+      <SessionRow responses={responses}/>
+    </tbody>
+  </table>
 );
 
 export default Chart;
