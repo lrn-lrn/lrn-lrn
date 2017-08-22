@@ -34,4 +34,3 @@ Tinder for Web Development Vocab and Concepts.
 - boolean
 - conditional statement
 - control flow
-- number 
