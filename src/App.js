@@ -9,6 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      currentSession: Date.now(),
       currentWord: 'object',
       words: [
         'object',
@@ -17,12 +18,20 @@ class App extends Component {
         'boolean',
         'function declaration'
       ],
-      responses: [],
+      sessions: {},
     };
 
     this.next = this.next.bind( this );
     this.negative = this.negative.bind( this );
     this.affirmative = this.affirmative.bind( this );
+  }
+
+  componentDidMount() {
+    this.setState({
+      sessions: {
+        [this.state.currentSession]: []
+      }
+    });
   }
 
   next() {
@@ -36,20 +45,25 @@ class App extends Component {
 
   negative() {
     console.log( '-' );
-    const responses = this.state.responses.map( x => x );
-    responses.push(false);
+    const sessionResponses = this.state.sessions[this.state.currentSession].map( x => x );
+    sessionResponses.push(false);
+
     this.setState({
-      responses
+      sessions: {
+        [this.state.currentSession]: sessionResponses
+      }
     });
     this.next();
   }
 
   affirmative() {
     console.log( '+' );
-    const responses = this.state.responses.map(x => x);
-    responses.push(true);
+    const sessionResponses = this.state.sessions[this.state.currentSession].map( x => x );
+    sessionResponses.push(true);
     this.setState({
-      responses
+      sessions: {
+        [this.state.currentSession]: sessionResponses
+      }
     });
     this.next();
   }
@@ -67,7 +81,7 @@ class App extends Component {
         {this.state.currentWord === undefined &&
           <Chart 
             words={this.state.words} 
-            responses={this.state.responses} 
+            sessions={this.state.sessions}
           />
         }
       </div>
