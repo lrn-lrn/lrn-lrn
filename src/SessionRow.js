@@ -1,13 +1,15 @@
 import React from 'react';
 
-const SessionRow = ({responses}) => (
+const SessionRow = ({sessions}) => (
     <tr>
         <th>
             session
         </th>
-        
-        {responses.map((resp, i) => (
-            <td key={i}>{resp.toString()}</td>
+
+        {Object.keys(sessions).map( ( session, i ) => (
+            sessions[session].map( ( response, i ) => (
+                <td key={i}>{response.toString()}</td>
+            ))
         ))
         }
     </tr>
