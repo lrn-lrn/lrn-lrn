@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       currentWord: 'object',
       words: [
+        'object',
         'object literal',
         'variable',
         'boolean',
