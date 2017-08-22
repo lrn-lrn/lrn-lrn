@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js';
 import Button from './Button.js';
+import Chart from './Chart.js';
 
 class App extends Component {
   constructor() {
@@ -14,7 +15,8 @@ class App extends Component {
         'variable',
         'boolean',
         'function declaration'
-      ]
+      ],
+      responses: [],
     };
 
     this.next = this.next.bind( this );
@@ -23,7 +25,7 @@ class App extends Component {
   }
 
   next() {
-    const wordsArr = this.state.words;
+    const wordsArr = this.state.words.map( x => x );
     const nextWord = wordsArr[0]; // undefined when wordsArr is empty
     const newWordsArr = wordsArr.slice( 1,wordsArr.length );
 
@@ -36,11 +38,21 @@ class App extends Component {
 
   negative() {
     console.log( '-' );
+    const responses = this.state.responses.map( x => x );
+    responses.push(false);
+    this.setState({
+      responses
+    });
     this.next();
   }
 
   affirmative() {
     console.log( '+' );
+    const responses = this.state.responses.map(x => x);
+    responses.push(true);
+    this.setState({
+      responses
+    });
     this.next();
   }
 
@@ -55,7 +67,7 @@ class App extends Component {
           </section>
         }
         {this.state.currentWord === undefined &&
-          <h1>CHART</h1>
+          <Chart responses={this.state.responses} />
         }
       </div>
     );
