@@ -25,15 +25,12 @@ class App extends Component {
   }
 
   next() {
-    const wordsArr = this.state.words.map( x => x );
-    const nextWord = wordsArr[0]; // undefined when wordsArr is empty
-    const newWordsArr = wordsArr.slice( 1,wordsArr.length );
+    const index = this.state.words.indexOf( this.state.currentWord );
+    const nextWord = this.state.words[index + 1];
 
     this.setState({
-      currentWord: nextWord,
-      words: newWordsArr
+      currentWord: nextWord
     });
-
   }
 
   negative() {
@@ -67,7 +64,10 @@ class App extends Component {
           </section>
         }
         {this.state.currentWord === undefined &&
-          <Chart responses={this.state.responses} />
+          <Chart 
+            words={this.state.words} 
+            responses={this.state.responses} 
+          />
         }
       </div>
     );
