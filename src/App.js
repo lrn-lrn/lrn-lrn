@@ -65,8 +65,7 @@ class App extends Component {
 
     this.setState({
       currentSession: sessionResponses
-    });
-    this.next();
+    }, this.next);
   }
 
   affirmative() {
@@ -77,8 +76,8 @@ class App extends Component {
 
     this.setState({
       currentSession: sessionResponses
-    });
-    this.next();
+    }, this.next);
+    
   }
 
   keyHandler(e) {
