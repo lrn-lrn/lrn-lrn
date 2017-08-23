@@ -1,18 +1,19 @@
 import React from 'react';
 
-const SessionRow = ({sessions}) => (
+const SessionRow = ({session, time}) => (
     <tr>
         <th>
-            session
+            {formatTime(time)}
         </th>
-
-        {Object.keys(sessions).map( ( session, i ) => (
-            sessions[session].map( ( response, i ) => (
+            {session.map( ( response, i ) => (
                 <td key={i}>{response.toString()}</td>
-            ))
-        ))
-        }
+            ))}
     </tr>
 );
+
+function formatTime(time) {
+    var date = new Date(parseInt(time));
+    return date.toDateString() + ' @ ' + date.toLocaleTimeString();
+}
 
 export default SessionRow;
