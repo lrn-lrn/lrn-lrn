@@ -5,6 +5,9 @@ import Card from './Card.js';
 import Button from './Button.js';
 import Chart from './Chart.js';
 
+import {emojify} from 'react-emojione';
+
+
 class App extends Component {
   constructor() {
     super();
@@ -96,9 +99,9 @@ class App extends Component {
       <div>
         {this.state.currentWord !== undefined &&
           <section id="container">
-              <Button text="IDK" action={this.negative}/>
+              <Button text={emojify(':negative_squared_cross_mark:')} action={this.negative}/>
               <Card word={this.state.currentWord}/>
-              <Button text="YES" action={this.affirmative}/>
+              <Button text={emojify(':white_check_mark:')} action={this.affirmative}/>
           </section>
         }
         {this.state.currentWord === undefined &&
