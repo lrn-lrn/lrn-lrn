@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js';
 import Button from './Button.js';
@@ -89,7 +88,7 @@ class App extends Component {
     
     if ( e.keyCode === 37 ) {
       this.negative();
-    } else if ( e.keyCode == 39 ) {
+    } else if ( e.keyCode === 39 ) {
       this.affirmative();
     }
   }

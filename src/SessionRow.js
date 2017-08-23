@@ -13,7 +13,7 @@ const SessionRow = ({session, time}) => (
 );
 
 function formatTime(time) {
-    var date = new Date(parseInt(time));
+    var date = new Date(parseInt(time, 10));
     return date.toDateString() + ' @ ' + date.toLocaleTimeString();
 }
 
