@@ -7,7 +7,7 @@ const Chart = ({words, sessions}) => (
     <WordHeader words={words}/>
     <tbody>
       {Object.keys(sessions).reverse().map((key, i) => (
-        <SessionRow session={sessions[key]} time={key}/>
+        <SessionRow key={i} session={sessions[key]} time={key}/>
       ))}
     </tbody>
   </table>
