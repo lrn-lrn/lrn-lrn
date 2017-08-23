@@ -3,8 +3,9 @@ import '../App.css';
 import Card from './Card.js';
 import Button from './Button.js';
 import Chart from './Chart.js';
-import words from '../data/words.js';
+import Modal from './Modal.js';
 
+import words from '../data/words.js';
 import {emojify} from 'react-emojione';
 
 
@@ -17,11 +18,13 @@ class App extends Component {
       currentWord: 'object',
       words,
       sessions: {},
+      modalOpen: true
     };
 
     this.next = this.next.bind( this );
     this.negative = this.negative.bind( this );
     this.affirmative = this.affirmative.bind( this );
+    this.closeModal = this.closeModal.bind( this );
 
     document.addEventListener( 'keydown', this.keyHandler.bind(this) );
   }
@@ -88,9 +91,28 @@ class App extends Component {
     }
   }
 
+  closeModal() {
+    this.setState({
+      modalOpen: false
+    });
+  }
+
   render() {
     return (
       <div>
+        {this.state.modalOpen &&
+          <Modal action={this.closeModal}>
+            <h1>Lrn Lrn</h1>
+            <h2>Alchemy Code Lab Student Self-assesment</h2>
+            {/* TODO add gif of app in action */}
+            <h2>How to Play</h2>
+            <ul>
+              <li>You'll be shown a vocab word or concept.</li>
+              <li>if you are comfortable with the topic, click the green checkmark (or your right arrow key)</li>
+              <li>if you are <strong>not</strong> comfortable with the topic, click the red x-mark (or your left arrow key)</li>
+            </ul>
+          </Modal>
+        }
         {this.state.currentWord !== undefined &&
           <section id="container">
               <Button text={emojify(':negative_squared_cross_mark:')} action={this.negative}/>
