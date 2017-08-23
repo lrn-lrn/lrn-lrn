@@ -1,4 +1,5 @@
 import React from 'react';
+import {emojify} from 'react-emojione';
 
 const SessionRow = ({session, time}) => (
     <tr>
@@ -6,7 +7,7 @@ const SessionRow = ({session, time}) => (
             {formatTime(time)}
         </th>
             {session.map( ( response, i ) => (
-                <td key={i}>{response.toString()}</td>
+                <td key={i}>{emojify( response ? ':white_check_mark:' : ':negative_squared_cross_mark:' )}</td>  
             ))}
     </tr>
 );
