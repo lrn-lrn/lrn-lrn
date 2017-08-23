@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import Card from './Card.js';
 import Button from './Button.js';
 import Chart from './Chart.js';
+import words from '../data/words.js';
 
 import {emojify} from 'react-emojione';
 
@@ -15,13 +15,7 @@ class App extends Component {
       timeStamp: Date.now(),
       currentSession: [],
       currentWord: 'object',
-      words: [
-        'object',
-        'object literal',
-        'variable',
-        'boolean',
-        'function declaration'
-      ],
+      words,
       sessions: {},
     };
 
