@@ -30,8 +30,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if ( !localStorage.sessions ) { return; }
     const oldSessions = JSON.parse(localStorage.sessions);
-    if ( !oldSessions ) { return; }
     this.setState({
       sessions: {
         ...oldSessions
