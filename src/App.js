@@ -9,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentSession: Date.now(),
+      timeStamp: Date.now(),
+      currentSession: [],
       currentWord: 'object',
       words: [
         'object',
@@ -29,9 +30,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const oldSessions = JSON.parse(localStorage.sessions);
     this.setState({
       sessions: {
-        [this.state.currentSession]: []
+        ...oldSessions
       }
     });
   }
@@ -43,35 +45,44 @@ class App extends Component {
     this.setState({
       currentWord: nextWord
     });
+
+    if(nextWord === undefined) {
+      this.setState({
+        sessions: {
+          ...this.state.sessions, 
+          [this.state.timeStamp]: this.state.currentSession
+        } 
+    }, () => localStorage.sessions = JSON.stringify(this.state.sessions));
+
+    }
   }
 
   negative() {
     console.log( '-' );
-    const sessionResponses = this.state.sessions[this.state.currentSession].map( x => x );
+    const sessionResponses = this.state.currentSession.map( x => x );
+
     sessionResponses.push(false);
 
     this.setState({
-      sessions: {
-        [this.state.currentSession]: sessionResponses
-      }
+      currentSession: sessionResponses
     });
     this.next();
   }
 
   affirmative() {
     console.log( '+' );
-    const sessionResponses = this.state.sessions[this.state.currentSession].map( x => x );
+    const sessionResponses = this.state.currentSession.map( x => x );
+
     sessionResponses.push(true);
+
     this.setState({
-      sessions: {
-        [this.state.currentSession]: sessionResponses
-      }
+      currentSession: sessionResponses
     });
     this.next();
   }
 
   keyHandler(e) {
-    if ( this.state.sessions[this.state.currentSession].length === this.state.words.length ) { return; }
+    if ( this.state.currentSession.length === this.state.words.length ) { return; }
     
     if ( e.keyCode === 37 ) {
       this.negative();
