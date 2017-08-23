@@ -5,7 +5,7 @@ const WordHeader = ({words}) => (
         <tr>
             <td></td>
             {words.map((word, i) => (
-                <th key={i}>{word}</th>
+                <th key={i} className="word">{word}</th>
             ))
             }
         </tr>

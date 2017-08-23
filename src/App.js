@@ -79,10 +79,12 @@ class App extends Component {
           </section>
         }
         {this.state.currentWord === undefined &&
+        <section id="chart">
           <Chart 
             words={this.state.words} 
             sessions={this.state.sessions}
           />
+        </section>
         }
       </div>
     );

@@ -33,3 +33,31 @@ html, body {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+
+#chart {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 30% 60% 10%;
+
+}
+
+table {
+  grid-column: 2;
+  grid-row: 2
+}
+
+table .word {
+  transform: rotate(-50deg);
+  transform-origin: top left;
+  font-weight: lighter;
+}
+
+td {
+  padding: 0 10px;
+}
+
+th {
+  border-bottom: dotted 1px gray;
+}
