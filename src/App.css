@@ -78,3 +78,25 @@ td {
 th {
   border-bottom: dotted 1px gray;
 }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    bottom: 65%;
+    left: 122%; 
+    margin-left: -60px;
+    transform: rotate(50deg);
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
