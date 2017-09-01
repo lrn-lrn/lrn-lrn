@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       timeStamp: Date.now(),
       currentSession: [],
-      currentWord: 'object',
+      currentWord: 'HTML',
       words,
       sessions: {},
       modalOpen: true
@@ -86,7 +86,7 @@ class App extends Component {
     
     if ( e.keyCode === 37 ) {
       this.negative();
-    } else if ( e.keyCode == 39 ) {
+    } else if ( e.keyCode === 39 ) {
       this.affirmative();
     }
   }
@@ -115,9 +115,9 @@ class App extends Component {
         }
         {this.state.currentWord !== undefined &&
           <section id="container">
-              <Button text={emojify(':negative_squared_cross_mark:')} action={this.negative}/>
+              <Button text={emojify(':see_no_evil:')} action={this.negative}/>
               <Card word={this.state.currentWord}/>
-              <Button text={emojify(':white_check_mark:')} action={this.affirmative}/>
+              <Button text={emojify(':star2:')} action={this.affirmative}/>
           </section>
         }
         {this.state.currentWord === undefined &&

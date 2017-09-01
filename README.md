@@ -20,8 +20,24 @@ Tinder for Web Development Vocab and Concepts.
 ## Stretch Goals
 - cards:
   - if user swipes yes, a question about that topic is presented
+  - animate!
+    - animate check or X pulsing a tiny bit when clicked
 - chart:
   - on hover over an X, user can get resources or tutorials, etc, to learn about topic
+  - only show columns w X's
+
+## TODOS
+- style! style! style!
+  - modal content
+  - card
+- input all vocab words
+  - order by topic
+- chart css: fade out sessions more than 10 sessions ago
+- add restart button
+- add menu
+  - instructions (opens instruction modal)
+  - view chart (maybe??)
+  - view uncomfy list
 
 ## Words
 

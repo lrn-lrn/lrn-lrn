@@ -1,6 +1,21 @@
+:root {
+
+  --gray-blue-color:rgba(76, 96, 133, 1);
+  --blue-color:rgba(57, 160, 237, 1);
+  --turq-color:rgba(54, 241, 205, 1);
+  --teal-color:rgba(19, 196, 163, 1);
+  --black-color:rgba(24, 2, 12, 1);
+}
+
 html, body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100wh;
+  color: var(--black-color);
+}
+
+body {
+  padding: 40px;
+  background-color: var(--blue-color);
 }
 
 #modal {
@@ -58,17 +73,29 @@ html, body {
   grid-template-columns: 25% 50% 25%;
   grid-template-rows: 30% 60% 10%;
 
+  border: solid;
+  box-sizing: border-box;
+  background-color: white;
 }
 
 table {
-  grid-column: 2;
-  grid-row: 2
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+  padding-top: 120px;
+  overflow-x: scroll;
+  display: block;
 }
 
 table .word {
   transform: rotate(-50deg);
   transform-origin: top left;
   font-weight: lighter;
+}
+
+tbody th {
+  width: 250px;
+  display: block;
+  margin-left: 20px;
 }
 
 td {
@@ -82,7 +109,7 @@ th {
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: black;
+    background-color: var(--black-color);
     color: #fff;
     text-align: center;
     border-radius: 6px;

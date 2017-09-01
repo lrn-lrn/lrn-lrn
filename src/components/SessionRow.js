@@ -7,13 +7,13 @@ const SessionRow = ({session, time}) => (
             {formatTime(time)}
         </th>
             {session.map( ( response, i ) => (
-                <td key={i}>{emojify( response ? ':white_check_mark:' : ':negative_squared_cross_mark:' )}</td>  
+                <td key={i}>{emojify( response ? ':star2:' : ':speak_no_evil:' )}</td>  
             ))}
     </tr>
 );
 
 function formatTime(time) {
-    var date = new Date(parseInt(time));
+    var date = new Date(parseInt(time, 10));
     return date.toDateString() + ' @ ' + date.toLocaleTimeString();
 }
 
