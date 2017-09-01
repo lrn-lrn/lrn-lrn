@@ -103,7 +103,7 @@ class App extends Component {
         {this.state.modalOpen &&
           <Modal action={this.closeModal}>
             <h1>Lrn Lrn</h1>
-            <h2>Alchemy Code Lab Student Self-assesment</h2>
+            <h2>Alchemy Code Lab Student Self-assessment</h2>
             {/* TODO add gif of app in action */}
             <h2>How to Play</h2>
             <ul>
@@ -115,9 +115,9 @@ class App extends Component {
         }
         {this.state.currentWord !== undefined &&
           <section id="container">
-              <Button text={emojify(':see_no_evil:', {style: {height:50}})} action={this.negative}/>
+              <Button text={emojify(':see_no_evil:', {style: {height:70}})} action={this.negative}/>
               <Card word={this.state.currentWord}/>
-              <Button text={emojify(':star2:', {style: {height:50}})} action={this.affirmative}/>
+              <Button text={emojify(':star2:', {style: {height:70}})} action={this.affirmative}/>
           </section>
         }
         {this.state.currentWord === undefined &&
