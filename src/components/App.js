@@ -115,9 +115,9 @@ class App extends Component {
         }
         {this.state.currentWord !== undefined &&
           <section id="container">
-              <Button text={emojify(':see_no_evil:')} action={this.negative}/>
+              <Button text={emojify(':see_no_evil:', {style: {height:50}})} action={this.negative}/>
               <Card word={this.state.currentWord}/>
-              <Button text={emojify(':star2:')} action={this.affirmative}/>
+              <Button text={emojify(':star2:', {style: {height:50}})} action={this.affirmative}/>
           </section>
         }
         {this.state.currentWord === undefined &&
